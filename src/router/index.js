@@ -19,7 +19,7 @@ const routes = [
 ];
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHistory("/the-singles-portfolio/"), // <-- base path para GH Pages
   routes,
 });
 
