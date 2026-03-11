@@ -59,6 +59,19 @@
         disfruta el recorrido por mi vida y experiencia.
       </p>
     </div>
+    <!-- Botón descargar CV -->
+<div class="cv-button-container">
+  <v-btn
+    color="success"
+    size="large"
+    class="cv-button"
+    href="/cv-denis-salinas.pdf"
+    target="_blank"
+    download
+  >
+    Descargar CV
+  </v-btn>
+</div>
 
   </div>
 </template>
@@ -70,9 +83,9 @@ import { computed } from "vue";
 const router = useRouter();
 const route = useRoute();
 
-// Reactivo: si estamos en Home no mostrar la flecha
+
 const isHomePage = computed(() => {
-  // Ajustado para GitHub Pages
+  // Ajuste para github pages
   return route.path === "/the-singles-portfolio/" || route.path === "/";
 });
 
@@ -90,7 +103,7 @@ function goTo(routePath: string) {
 }
 
 function goHome() {
-  router.push("/"); // esto apunta al home correctamente
+  router.push("/");
 }
 </script>
 
@@ -271,5 +284,22 @@ function goHome() {
 @keyframes fadeUp {
   0% { opacity:0; transform: translateY(20px); }
   100% { opacity:0.85; transform: translateY(0); }
+}
+
+.cv-button-container{
+  margin-top:20px;
+  margin-bottom:30px;
+  text-align:center;
+  z-index:2;
+}
+
+.cv-button{
+  font-family:'Doto', monospace;
+  letter-spacing:2px;
+  font-weight:900;
+  box-shadow:
+    0 0 10px #68e00c,
+    0 0 20px #68e00c,
+    0 0 40px rgba(104,224,12,.7);
 }
 </style>
