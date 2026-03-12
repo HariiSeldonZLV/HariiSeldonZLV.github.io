@@ -4,11 +4,11 @@ import vuetify from "vite-plugin-vuetify";
 import path from "path";
 
 export default defineConfig({
-  base: "/the-singles-portfolio/",
+  base: "/",
   plugins: [vue(), vuetify({ autoImport: true })],
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "src"), // <-- agrega esto
+      "@": path.resolve(__dirname, "src"),
     },
   },
 });
