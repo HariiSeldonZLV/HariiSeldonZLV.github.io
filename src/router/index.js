@@ -1,5 +1,5 @@
 // src/router/index.ts
-import { createRouter, createWebHashHistory } from "vue-router"; // Cambio a Hash para evitar errores 404
+import { createRouter, createWebHashHistory } from "vue-router";
 import Homevueds from "@/views/Homevueds.vue";
 import Historia from "@/views/Historia.vue";
 import Skills from "@/views/Skills.vue";
@@ -9,8 +9,8 @@ import Certificaciones from "@/views/Certificaciones.vue";
 import Contacto from "@/views/Contacto.vue";
 
 const router = createRouter({
-  // Usamos HashHistory para que en GitHub Pages no de error al recargar la página
-  history: createWebHashHistory("/the-singles-portfolio/"),
+  history: createWebHashHistory("/"),
+
   routes: [
     {
       path: "/",
@@ -53,7 +53,7 @@ const router = createRouter({
       redirect: "/",
     },
   ],
-  // Esto hace que cuando cambies de página, el scroll vuelva arriba (muy importante)
+  // Esto hace que cuando cambies de página, el scroll vuelva arriba
   scrollBehavior() {
     return { top: 0 };
   },
