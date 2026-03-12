@@ -1,18 +1,17 @@
 <template>
   <v-container class="py-12">
 
-    <!-- FLECHA FIJA VOLVER AL HOME -->
     <div
       class="back-home-arrow"
       v-if="!isHomePage"
       @click="goHome"
     ></div>
 
-    <!-- Sección Proyecto Web -->
+    <h3 class="doto red-title text-center mb-8 text-h4">Proyectos Web</h3>
+
     <v-row justify="center" class="mb-12">
       <v-col cols="12" md="6">
-        <v-card class="dark-card" outlined>
-          <!-- Mockup de laptop realista -->
+        <v-card class="dark-card h-100" outlined>
           <div class="mockup-laptop-real">
             <div class="mockup-screen-wrapper">
               <img
@@ -24,8 +23,7 @@
             </div>
           </div>
 
-          <!-- Títulos y descripción -->
-          <v-card-title class="doto red-title justify-center">
+          <v-card-title class="doto red-title justify-center text-center">
             Proyecto Maulenoticias2
           </v-card-title>
 
@@ -34,13 +32,52 @@
           </v-card-subtitle>
 
           <v-card-text class="montserrat white-text text-center">
-            Revisa el proyecto completo y explora noticias actualizadas.
+            Revisa el proyecto completo y explora noticias actualizadas con una interfaz dinámica.
           </v-card-text>
 
-          <v-card-actions class="justify-center">
+          <v-card-actions class="justify-center pb-6">
             <v-btn
               color="primary"
+              variant="elevated"
               href="https://hariiseldonzlv.github.io/maulenoticias2/#/"
+              target="_blank"
+            >
+              Ver Proyecto
+            </v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-col>
+
+      <v-col cols="12" md="6">
+        <v-card class="dark-card h-100" outlined>
+          <div class="mockup-laptop-real">
+            <div class="mockup-screen-wrapper">
+              <img
+                :src="priscillaImg"
+                alt="Captura Proyecto Diputada"
+                class="mockup-screen"
+              />
+              <div class="mockup-reflection"></div>
+            </div>
+          </div>
+
+          <v-card-title class="doto red-title justify-center text-center">
+            Proyecto Diputada Priscilla Castillo
+          </v-card-title>
+
+          <v-card-subtitle class="montserrat red-subtitle text-center">
+            Plataforma institucional desarrollada con Vue 3 y Vuetify
+          </v-card-subtitle>
+
+          <v-card-text class="montserrat white-text text-center">
+            Sitio optimizado con despliegue continuo en Netlify y diseño moderno orientado al servicio público.
+          </v-card-text>
+
+          <v-card-actions class="justify-center pb-6">
+            <v-btn
+              color="primary"
+              variant="elevated"
+              href="https://super-creponne-d29a1a.netlify.app"
               target="_blank"
             >
               Ver Proyecto
@@ -50,11 +87,10 @@
       </v-col>
     </v-row>
 
-    <!-- Sección Videos Humanitarios -->
-    <h2 class="doto red-title text-center mb-6">Proyectos Humanitarios</h2>
+    <h3 class="doto red-title text-center mb-8 text-h4">Proyectos Humanitarios</h3>
     <v-row justify="center" dense>
       <v-col cols="12" md="4" v-for="(video, index) in videos" :key="index">
-        <v-card class="dark-card" outlined>
+        <v-card class="dark-card h-100" outlined>
           <iframe
             :src="`https://www.youtube.com/embed/${video.id}`"
             height="200"
@@ -72,6 +108,7 @@
 
 <script setup lang="ts">
 import maulenoticiasImg from "@/assets/maulenoticias.png";
+import priscillaImg from "@/assets/priscilla.png"; // Asegúrate de que esta imagen exista en assets
 import { useRouter, useRoute } from "vue-router";
 
 const router = useRouter();
@@ -114,7 +151,7 @@ const videos = [
   transform: rotate(-45deg);
   cursor: pointer;
   animation: bounce 1.5s infinite;
-  z-index: 1000; /* siempre encima */
+  z-index: 1000;
   background: rgba(0,0,0,0.3);
   border-radius: 5px;
   padding: 5px;
@@ -126,23 +163,22 @@ const videos = [
   60% { transform: translateY(-3px) rotate(-45deg); }
 }
 
-/* Efecto hover */
 .back-home-arrow:hover {
   border-color: #ff0000;
   background: rgba(255,0,0,0.2);
   transform: translateY(-2px) rotate(-45deg);
 }
 
-/* Card oscuro */
 .dark-card {
   background-color: #1a1a1a !important;
   transition: transform 0.3s;
+  display: flex;
+  flex-direction: column;
 }
 .dark-card:hover {
-  transform: scale(1.03);
+  transform: scale(1.02);
 }
 
-/* Fuentes y colores */
 .doto {
   font-family: "Doto", sans-serif !important;
 }
@@ -154,6 +190,7 @@ const videos = [
 }
 .red-subtitle {
   color: #ff4d4d !important;
+  font-weight: bold;
 }
 .white-text {
   color: #ffffff !important;
@@ -162,9 +199,9 @@ const videos = [
 /* Mockup laptop realista */
 .mockup-laptop-real {
   position: relative;
-  width: 100%;
-  padding-top: 56.25%;
-  margin-bottom: 16px;
+  width: 90%;
+  margin: 16px auto;
+  padding-top: 50.62%; /* Ajuste para proporción de pantalla */
 }
 
 .mockup-screen-wrapper {
@@ -173,7 +210,8 @@ const videos = [
   left: 0;
   width: 100%;
   height: 100%;
-  border: 8px solid #222;
+  border: 10px solid #222;
+  border-bottom: 14px solid #222; /* Borde inferior más grueso simula base */
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 12px 25px rgba(0,0,0,0.6);
@@ -192,11 +230,10 @@ const videos = [
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(rgba(255,255,255,0.05), rgba(255,255,255,0.1));
+  background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 50%);
   pointer-events: none;
 }
 
-/* Video full width */
 .video-frame {
   width: 100%;
 }
